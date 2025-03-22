@@ -1,17 +1,21 @@
 package com.eazybytes.eazyschool.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.Data;
 
-@Getter // Generates getters for all fields
-@AllArgsConstructor // Generates an all-args constructor
-@ToString // Generates a toString() method
-public class Holiday {
+import jakarta.persistence.*;
 
-    private final String day;
-    private final String reason;
-    private final Type type;
+@Data
+@Entity
+@Table(name="holidays")
+public class Holiday extends BaseEntity {
+
+    @Id
+    private String day;
+
+    private String reason;
+
+    @Enumerated(EnumType.STRING)
+    private Type type;
 
     public enum Type {
         FESTIVAL, FEDERAL
