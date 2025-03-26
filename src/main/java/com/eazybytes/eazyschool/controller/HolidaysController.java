@@ -25,9 +25,9 @@ public class HolidaysController {
         if(null != display && display.equals("all")){
             model.addAttribute("festival",true);
             model.addAttribute("federal",true);
-        }else if(null != display && display.equalsIgnoreCase("federal")){
+        }else if(null != display && display.equals("federal")){
             model.addAttribute("federal",true);
-        }else if(null != display && display.equalsIgnoreCase("festival")){
+        }else if(null != display && display.equals("festival")){
             model.addAttribute("festival",true);
         }
         Iterable<Holiday> holidays = holidaysRepository.findAll();
